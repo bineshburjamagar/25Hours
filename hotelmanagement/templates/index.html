@@ -1,0 +1,160 @@
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <link href="{% static 'css/mobiscroll.javascript.min.css'%}" rel="stylesheet" />
+<script src="{%static 'js/mobiscroll.javascript.min.js'%}"></script>
+    <title>25 Hours</title>
+</head>
+<body>
+    
+      <!-- navigation bar -->
+      <header>
+      
+        <div id="brand">
+            <a href="">   25 Hours
+            </a>
+    
+        </div>
+    </div>
+
+ <nav>
+              <ul>
+        <li id="host">
+            <a href="">Become Host</a> </li>
+        <li id="login">
+            <a href="{% url 'log' %}">Login</a>
+        </li>
+        <li id="signup">
+            <a href="{%url 'register' %}">Signup</a>
+        </li>
+        </ul>
+ </nav>
+{% comment %} 
+ <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+     <div class="bar1"></div>
+     <div class="bar2"></div>
+     <div class="bar3"></div>
+
+     <ul class="mobile-menu">
+        <li id="host">
+            <a href="">Become Host</a> </li>
+        <li id="login">
+            <a href="./login">Login</a>
+        </li>
+        <li id="signup">
+            <a href="">Signup</a>
+        </li>
+        </ul>
+
+     </ul>
+
+ </div> {% endcomment %}
+
+</header>
+<!-- background image -->
+<section class="main">
+ <img src="{% static 'img/hotel.jpg' %}" alt="hotel image">
+
+</section>
+<!-- booking form -->
+
+<section class="book-section">
+<div class="inner-book">
+  <div id="demo-range-selection"></div>
+    Check-in:
+    <input type="date" id="demo" placeholder="check-in">
+    Check-out:
+    <input type="date" id="out" placeholder="check-out">
+    <input type="text" placeholder="Place Name">
+    <input type="number" placeholder="Number of rooms">
+    <div class="search-btn">
+        <a href="#">Search</a>
+    </div>
+
+
+</div>
+</section>
+
+   
+
+<!--FOOTER SECTION -->
+
+          
+<div class="footer">
+    <div class="footer-content">
+
+        <!-- LEFT SIDE -->
+        <div class="footer-section about">
+            <h2>25 HOURS<br></h2>
+            <div class="content">
+             
+              <div class="social">
+                <!-- social media logos -->
+                <a href="#"><span class="fab fa-facebook-f"></span></a>
+                <a href="#"><span class="fab fa-instagram"></span></a>
+                
+              </div>
+            </div>
+        </div>
+
+        <!-- MIDDLE -->
+        <div class="footer-section address">
+            <h2>ADDRESS</h2>
+            <br>
+            <div class="content">
+              <div class="place">
+                <span class="fas fa-map-marker-alt"></span>
+                <span class="text2">Kathmandu, Nepal</span>
+              </div>
+              <div class="phone">
+                <span class="fas fa-phone-alt"></span>
+                <span class="text2">0666666</span>
+              </div>
+              <div class="email2">
+                <span class="fas fa-envelope"></span>
+                <span class="text2">25Hours@gmail.com</span>
+              </div>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+
+        <div class="footer-section contact">
+
+            <h2>FEEDBACKS</h2>
+            <br>
+            <div class="content">
+              <form action="#">
+                <div class="email2">
+                  <div class="text2">Email *</div>
+                  <input type="email" required>
+                </div>
+                <div class="msg">
+                  <div class="text2">Message *</div>
+                      <textarea cols="10" rows="5" placeholder="Message here..." required></textarea>
+                  </div>
+            
+                <div class="btn">
+                  <button type="submit">Send</button>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+         <span class="credit">Created By <a style="color:white"> |Binesh Burja Magar|</a> </span>
+        <span class="far fa-copyright"></span><span> 2022 All rights reserved.</span>
+
+    </div>
+</div>
+
+  
+<script src="{% static 'js/script.js' %}"></script> 
+</body>
+</html>
