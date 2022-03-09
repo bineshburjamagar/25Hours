@@ -36,3 +36,6 @@ def login(request):
             if UserDetails.password == request.POST['password']:
                 return render(request,'index.html')
     return render(request,"Login.html")
+
+def logout(request):
+    return render(request, 'Logout.html')
