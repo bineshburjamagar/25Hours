@@ -4,26 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <script src="{%static 'https://code.jquery.com/jquery-3.2.1.js' static%}"></script> {% endcomment %}
+    <script type="text/javascript" src="{% static 'static/js/jquery-3.6.0.js'%}">
+    </script> 
 
     <link rel="stylesheet" href="{%static 'css/style.css'%}">
-    <link href="{% static 'css/mobiscroll.javascript.min.css'%}" rel="stylesheet" />
-<script src="{%static 'js/mobiscroll.javascript.min.js'%}"></script>
+    <link rel="icon" href="{%static 'favicon/favicon.ico'%}" type="image/x-icon">
+    
     <title>25 Hours</title>
 </head>
 <body>
-    
-      <!-- navigation bar -->
-      <header>
-      
-        <div id="brand">
-            <a href="">   25 Hours
-            </a>
-    
-        </div>
-    </div>
-
- <nav>
-              <ul>
+    {% comment %} <img src="{% static 'img/hotel.jpg' %}" alt="hotel image"> {% endcomment %}
+    <nav> 
+      <div class="logo">
+      <a href="{%url 'home'%}">25Hours</a>
+      </div>
+      <ul>
         <li id="host">
             <a href="">Become Host</a> </li>
         <li id="login">
@@ -33,6 +29,23 @@
             <a href="{%url 'register' %}">Signup</a>
         </li>
         </ul>
+
+    </div>
+  </nav>
+
+    
+      <!-- navigation bar -->
+      {% comment %} <header>
+      
+        <div id="brand">
+            <a href="">   25 Hours
+            </a>
+    
+        </div>
+    </div>
+
+ <nav>
+            
  </nav>
 {% comment %} 
  <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
@@ -55,13 +68,11 @@
 
  </div> {% endcomment %}
 
-</header>
+{% comment %} </header> {% endcomment %}
 <!-- background image -->
 <section class="main">
- <img src="{% static 'img/hotel.jpg' %}" alt="hotel image">
 
 </section>
-<!-- booking form -->
 
 <section class="book-section">
 <div class="inner-book">
@@ -75,10 +86,13 @@
     <div class="search-btn">
         <a href="#">Search</a>
     </div>
-
-
 </div>
-</section>
+</section> 
+
+<!--top loactions-->
+
+
+
 
    
 
@@ -152,8 +166,7 @@
         <span class="far fa-copyright"></span><span> 2022 All rights reserved.</span>
 
     </div>
-</div>
-
+</div> 
   
 <script src="{% static 'js/script.js' %}"></script> 
 </body>

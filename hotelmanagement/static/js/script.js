@@ -1,6 +1,12 @@
-function toggleMobileMenu(menu){
-    menu.classList.toggle('open');
-
+// Navbar
+$(window).on('scroll'), function(){
+  if ($(window).scrollTop()){
+    $('nav').addClass('black');
+  }
+  else
+  {
+    $('nav').removeClass('black');
+  }
 }
 var todayDate = new Date();
 var month = todayDate.getMonth()+1; //04 - current month
@@ -14,21 +20,4 @@ if(tdate < 10){
 }
 var minDate = year + "-" + month + "-" + tdate;
 document.getElementById("demo").setAttribute("min", minDate);
-console.log(minDate);
 
-var checkOut = document.getElementById("out").value;
-document.getElementById("demo").innerHTML+ checkOut;
-
-mobiscroll.setOptions({
-    theme: 'ios',
-    themeVariant: 'light'
-});
-
-
-mobiscroll.datepicker('#demo-range-selection', {
-    controls: ['calendar'],
-    display: 'inline',
-    rangeSelectMode: 'wizard',
-    select: 'range',
-    showRangeLabels: true
-});
