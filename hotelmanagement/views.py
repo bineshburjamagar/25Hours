@@ -8,6 +8,8 @@ from django.contrib import messages
 def index(request):
     return render(request, 'index.html')
 
+
+
 def signup(request):
     if request.method=="POST":
         user =User()
@@ -18,8 +20,9 @@ def signup(request):
         user.username= request.POST['Username']
         user.password= request.POST['password']
         user.save()
-        messages.success(request,'Congrats, your account was created successfully' )
+        messages.success(request, 'Congrats, your account was created successfully' )
         return redirect('home')
+       
     else:
         
         return render(request, 'SignUp.html')
