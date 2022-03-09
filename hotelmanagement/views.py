@@ -1,7 +1,7 @@
 from django.contrib import messages
 from tkinter import N
 from unicodedata import name
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import User
 from django.contrib import messages
 # Create your views here.
@@ -18,12 +18,14 @@ def signup(request):
         user.username= request.POST['Username']
         user.password= request.POST['password']
         user.save()
-        return render(request, 'index.html')
+        messages.success(request,'Congrats, your account was created successfully' )
+        return redirect('home')
+    else:
+        
+        return render(request, 'SignUp.html')
        
         
-       
-            
-    return render(request, 'SignUp.html')
+    
 
 def login(request):
     if request.method == "POST":
