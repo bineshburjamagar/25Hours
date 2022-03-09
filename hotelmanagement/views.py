@@ -1,4 +1,5 @@
 
+from django.contrib.auth import logout
 from django.contrib.auth import login, authenticate
 from hotelmanagement.forms import CreateUserForm 
 from django.contrib import messages
@@ -44,8 +45,13 @@ def loginuser(request):
 
     return render(request,"Login.html")
 
-def logout(request):
+def logoutuser(request):
+    logout(request)
     return render(request, 'Logout.html')
 
 def userprofile(request):
-    return render(request, 'profile.html')
+    if request.user.is_authenticated:
+        return render(request, 'profile.html')
+    else:
+
+        return redirect('Login.html')
