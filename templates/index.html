@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% comment %} <script src="{%static 'https://code.jquery.com/jquery-3.2.1.js' static%}"></script> {% endcomment %}
-    <script type="text/javascript" src="{% static 'static/js/jquery-3.6.0.js'%}">
-    </script> 
+    
 
     <link rel="stylesheet" href="{%static 'css/style.css'%}">
     <link rel="icon" href="{%static 'favicon/favicon.ico'%}" type="image/x-icon">
@@ -15,7 +13,7 @@
 </head>
 <body>
     {% comment %} <img src="{% static 'img/hotel.jpg' %}" alt="hotel image"> {% endcomment %}
-    <nav> 
+    <nav id="header"> 
       <div class="logo">
       <a href="{%url 'home'%}">25Hours</a>
       </div>
@@ -89,7 +87,7 @@
 <div class="inner-book">
   <div id="demo-range-selection"></div>
     Check-in:
-    <input type="date" id="demo" placeholder="check-in">
+    <input type="date" name="demo" id="demo" placeholder="check-in">
     Check-out:
     <input type="date" id="out" placeholder="check-out">
     <input type="text" placeholder="Place Name">

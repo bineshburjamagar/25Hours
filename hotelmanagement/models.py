@@ -1,15 +1,12 @@
-from django.db import models
+from django.contrib.auth.models import (UserManager, AbstractUser)
 
-# Create your models here.
-class User(models.Model):
-    fname=models.CharField(max_length=30)
-    lname=models.CharField(max_length=30)
-    email=models.CharField(max_length=30)
-    username=models.CharField(max_length=30)
-    password=models.CharField(max_length=30)
+# UserManager class code here
+class User(AbstractUser):
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['first_name','last_name', 'email']
 
+    objects=UserManager()
     def __str__(self):
-        return self.fname
+        return self.email
 
-class Meta:
-    db_table= "hotelmanagement_user"
+  

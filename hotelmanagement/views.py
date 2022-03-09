@@ -1,3 +1,6 @@
+
+from django.contrib.auth import login, authenticate
+from hotelmanagement.forms import CreateUserForm 
 from django.contrib import messages
 from tkinter import N
 from unicodedata import name
@@ -12,30 +15,37 @@ def index(request):
 
 def signup(request):
     if request.method=="POST":
-        user =User()
+        user=CreateUserForm(request.POST)
 
-        user.fname= request.POST['first_name']
-        user.lname= request.POST['last_name']
-        user.email= request.POST['email']
-        user.username= request.POST['Username']
-        user.password= request.POST['password']
-        user.save()
-        messages.success(request, 'Congrats, your account was created successfully' )
-        return redirect('home')
-       
+        if user.is_valid():
+            user.save()
+            messages.success(request, 'Your account was created successfully' )
+            return redirect('home')
+        else :
+            if user.errors:
+                return render(request, "SignUp.html", {"errors": user.errors})
     else:
         
         return render(request, 'SignUp.html')
        
         
-    
 
-def login(request):
+def loginuser(request):
     if request.method == "POST":
-            UserDetails=User.objects.get(username=request.POST['username'])
-            if UserDetails.password == request.POST['password']:
-                return render(request,'index.html')
+
+
+        username=request.POST['username']
+        password=request.POST['password']
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+
     return render(request,"Login.html")
 
 def logout(request):
     return render(request, 'Logout.html')
+
+def userprofile(request):
+    return render(request, 'profile.html')
