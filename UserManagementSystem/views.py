@@ -24,7 +24,8 @@ def signup(request):
             return redirect('home')
         else :
             if user.errors:
-                return render(request, "SignUp.html", {"errors": user.errors})
+                messages.success(request,'somthing is wronggg')
+                return redirect(request, "SignUp.html", {"errors": user.errors})
     else:
         
         return render(request, 'SignUp.html')
