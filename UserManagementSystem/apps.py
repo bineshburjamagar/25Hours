@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class HotelmanagementConfig(AppConfig):
+class UserManagementSystemConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'hotelmanagement'
+    name = 'UserManagementSystem'

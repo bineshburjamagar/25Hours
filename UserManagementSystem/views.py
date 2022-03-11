@@ -1,7 +1,7 @@
 
 from django.contrib.auth import logout
 from django.contrib.auth import login, authenticate
-from hotelmanagement.forms import CreateUserForm 
+from UserManagementSystem.forms import CreateUserForm 
 from django.contrib import messages
 from tkinter import N
 from unicodedata import name

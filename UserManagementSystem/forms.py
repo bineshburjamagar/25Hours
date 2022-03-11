@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm
-from hotelmanagement.models import User
+from UserManagementSystem.models import User
 
 class CreateUserForm(UserCreationForm):
     class Meta:

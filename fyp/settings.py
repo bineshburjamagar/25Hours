@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hotelmanagement',
+    'UserManagementSystem',
     'hotelhost',
 ]
 
@@ -56,7 +56,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'fyp.urls'
-AUTH_USER_MODEL = 'hotelmanagement.User'
+AUTH_USER_MODEL = 'UserManagementSystem.User'
 
 TEMPLATES = [
     {
@@ -88,6 +88,9 @@ DATABASES = {
         "PASSWORD": "",
         "HOST": "127.0.0.1",
         "PORT": "3306",
+        "OPTIONS": {
+            "sql_mode": "traditional",
+        },
     
     }
 }
