@@ -9,7 +9,7 @@
 
 </head>
 <body>
-  <form action="/addRoom" method="POST">
+  <form action="roomAdd" method="POST">
     {% csrf_token %}  
     <div class ="forms">
         <h1>Welcome Host</h1>
@@ -46,11 +46,10 @@
         <label for="exampleFormControlTextarea1" class="form-label">Discription</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" name="room_desc" rows="3"></textarea>
       </div>
-      <input type="submit" value="addRoom" onClick="check()">
+      {% comment %} <input type="submit" value="ADD"> {% endcomment %}
+      <button type="submit">Save</button>
     </div>
   </form>
-
-   
 <script src="{% static 'bootstrap.min.js' %}"></script>  
 </body>
 </html>
