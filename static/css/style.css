@@ -21,9 +21,10 @@ nav{
   padding: 10px 100px;
   box-sizing: border-box;
   transition: .5s;
+}
+
   
 
-}
 nav.black{
   background-color: rgba(0, 0, 0, 0.8);
 
@@ -194,10 +195,30 @@ ul li:hover{
   .search-btn:hover {
       background-color: #2F2E41;
       transform: scale(1.1);
-    transition: 0.3s;
+      transition: 0.3s;
   }
 
 
+
+  /* why 25hours */
+  .why{
+    height: 50vh;
+    /* width: 100vh; */
+    background-color: #000000;
+    align-items: center;
+    padding: 40px 40px;
+    margin: 10px 10px;
+    
+
+  }
+ .why .det{
+   
+    background-color: rgb(247, 9, 9);
+    background: #0000;
+    text-align: center;
+   
+  }
+ 
 
 
 

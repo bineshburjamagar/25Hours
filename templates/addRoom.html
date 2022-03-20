@@ -1,6 +1,7 @@
 {%load bootstrap5 %}
 {%load static%}
-<!DOCTYPE html>
+
+{% comment %} <!DOCTYPE html> 
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
@@ -46,10 +47,88 @@
         <label for="exampleFormControlTextarea1" class="form-label">Discription</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" name="room_desc" rows="3"></textarea>
       </div>
-      {% comment %} <input type="submit" value="ADD"> {% endcomment %}
+      {% comment %} <input type="submit" value="ADD"> 
       <button type="submit">Save</button>
     </div>
   </form>
 <script src="{% static 'bootstrap.min.js' %}"></script>  
 </body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Host Room</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="{%static 'css/addroom.css'%}">
+	</head>
+
+	<body>
+    
+
+		<div class="wrapper" >
+			<div class="inner">
+					<h3>Welcome Host</h3>
+					<form action="roomAdd" method="POST">
+            {% csrf_token %}  
+					<div class="form-wrapper">
+						<label for="">Hotel Name</label>
+						<div class="drop-down">
+							<select id="choose" name="hotel_name">
+								<option value="Hotel Yak & Yeti">Hotel Yak & Yeti</option>
+								<option value="The Famous Farm, Nuwakot">The Famous Farm</option>
+								<option value="Grand Hotel Kathmandu">Grand Hotel Kathmandu</option>
+							  </select>
+
+						</div>
+					</div>
+					
+					<div class="form-wrapper">
+						<label for="">Room Type</label>
+						<div class="drop-down">
+							<select id="choose" name="room_type">
+								<option value="">Single</option>
+								<option value="">Double</option>
+								<option value="">Triple</option>
+								<option value="">Quad</option>
+							  </select>
+
+						</div>
+					
+					
+					</div>
+					<div class="form-wrapper">
+						<label for="">Place Name</label>
+						<input type="text" name="place_name"class="form-control">
+					
+
+						</div>
+
+					<div class="form-wrapper">
+						<label for="">Price *Incl. of all taxes</label>
+						<input type="number" name="room_price" class="form-control">
+					</div>
+					<div class="form-wrapper">
+						<label for="">Upload Images</label>
+						<input type="file" multiple="" data-max_length="20" name="room_image" class="upload__inputfile">
+					</div>
+					<div class="form-wrapper">
+						<label for="">Description</label>
+						<!-- <input type="text" class="form-control-desc"> -->
+						<textarea id="story" name="room_desc"
+						  rows="5" cols="33">
+						</textarea>
+					</div>
+								
+					<button>Register Now</button>
+				</form>
+      
+			</div>
+		</div>
+		
+	</body>
 </html>

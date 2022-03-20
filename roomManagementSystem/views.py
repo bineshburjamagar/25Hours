@@ -7,7 +7,7 @@ from django.contrib import messages
 # Create your views here.
 def addRoom(request):
     if request.method == "POST":
-        room = rooms.objects.create(hotel_name=request.POST["hotel_name"],room_type=request.POST["room_type"],room_price=request.POST["room_price"],room_image=request.POST["room_image"],room_desc=request.POST["room_desc"])
+        room = rooms.objects.create(hotel_name=request.POST["hotel_name"],room_type=request.POST["room_type"],place_name=request.POST["place_name"],room_price=request.POST["room_price"],room_image=request.POST["room_image"],room_desc=request.POST["room_desc"])
         # messages.success(request, 'Your account was created successfully' )
         return redirect('home')
     else:
