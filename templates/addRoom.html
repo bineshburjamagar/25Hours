@@ -73,7 +73,7 @@
 		<div class="wrapper" >
 			<div class="inner">
 					<h3>Welcome Host</h3>
-					<form action="roomAdd" method="POST">
+					<form action="roomAdd" enctype="multipart/form-data" method="POST">
             {% csrf_token %}  
 					<div class="form-wrapper">
 						<label for="">Hotel Name</label>
