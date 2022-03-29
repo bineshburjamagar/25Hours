@@ -86,19 +86,9 @@
 
 
 
-{% comment %} <div class="container">
+ <div class="container">
   <!-- Content here -->
   
-  <img src = {% static 'img/hotel.jpg'%}
-  style="
-  width: 100%;
-  height: 90vh;
-  background-size: cover;
-  border-radius: 0 0 10% 10%;
-">
-</div>  {% endcomment %}
-
-
 <div class="bg-image" 
      style="background-image: url('{% static 'img/hotel.jpg'%}');
             height: 90vh;
@@ -107,7 +97,7 @@
             ">
 </div>
 
-{% comment %} <section class="main">
+<section class="main">
    
   <div>
     {% if messages%}
@@ -119,7 +109,7 @@
     {%endif%}
     
  </div>
-</section> {% endcomment %}
+</section> 
 
 
 
@@ -139,6 +129,64 @@
 </section> 
 
 <!--top loactions-->
+
+
+
+    
+<section class="cities" id="cities">
+
+  <h1 class="heading">
+      <span>TOP CITIES</span>
+      
+  </h1>
+
+  <div class="box-container">
+
+      <div class="box">
+          <img src="{%static 'img/kathmandu.jpg' %}" alt="">
+          <div class="content">
+              <h3> <i class="fas fa-map-marker-alt"></i> Kathmandu </h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+             
+              <a href="#" class="btn">Discover now</a>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="{%static 'img/kathmandu.jpg' %}" alt="">
+          <div class="content">
+              <h3> <i class="fas fa-map-marker-alt"></i> Bhaktapur </h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+              
+              <a href="#" class="btn">Discover now</a>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="{%static 'img/kathmandu.jpg' %}" alt="">
+          <div class="content">
+              <h3> <i class="fas fa-map-marker-alt"></i> Ilam </h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+             
+              <a href="#" class="btn">Discover now</a>
+          </div>
+      </div>
+
+      
+</section>
+
+<!-- packages section ends -->
+
+
+
+
+
+
+
+
+
+
+
 
 
 <section class="why">
