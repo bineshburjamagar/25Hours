@@ -24,7 +24,9 @@
       </div>
       <ul>
         <li id="host">
+          {%if user.is_authenticated and  User.is_hotelOwner%}
             <a href="{%url 'roomAdd' %}">Become Host</a> </li>
+            {%endif%}
 
             {%if user.is_authenticated%}
             <li id="login">
@@ -83,10 +85,25 @@
 
 {% comment %} </header> {% endcomment %}
 <!-- background image -->
+<section class="site-hero overlay" style="background-image: url(img/hero_5.jpg)" data-stellar-background-ratio="0.5" id="section-home">
+  <div class="container">
+    <div class="row site-hero-inner justify-content-center align-items-center">
+      <div class="col-md-10 text-center" data-aos="fade-up">
+        <h1 class="heading">Stay With Us &amp; Relax</h1>
+      </div>
+    </div>
+  </div>
+
+  <a class="mouse smoothscroll" href="#next" >
+    <div class="mouse-icon">
+      <span class="mouse-wheel"></span>
+    </div>
+  </a>
+</section>
 
 
 
- <div class="container">
+ {% comment %} <div class="container">
   <!-- Content here -->
   
 <div class="bg-image" 
@@ -95,7 +112,12 @@
             border-radius: 0 0 10% 10%;
             background-size: static;
             ">
-</div>
+            {% comment %} <h1>
+              Welcome to 25 Hours
+              
+            </h1>
+            {% endcomment %}
+
 
 <section class="main">
    
