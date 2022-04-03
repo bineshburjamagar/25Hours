@@ -34,8 +34,9 @@ class hotelOwner(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     hotel_name = models.CharField(max_length=20,default='')
     # REQUIRED_FIELDS = ['first_name','last_name', 'email', 'hotel_name']
-  
-    objects=UserManager()
+    is_customer = models.BooleanField(default=True)
+    is_hotelOwner = models.BooleanField(default=True)
+
     def __str__(self):
         return self.hotel_name
     

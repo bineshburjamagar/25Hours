@@ -5,4 +5,4 @@ from .models import rooms
 
 @admin.register(rooms)
 class RoomAdmin(admin.ModelAdmin):
-    disp_list = ['hotel_name', 'room_type', 'room_price', 'room_image', 'room_desc']
+    disp_list = ['hotel_name', 'room_type', 'room_price','room_number', 'room_image', 'room_desc']

@@ -18,17 +18,23 @@
 <body>
   
     {% comment %} <img src="{% static 'img/hotel.jpg' %}" alt="hotel image"> {% endcomment %}
+    <div class="hero-image" style="background-image: url({% static 'img/hotel.jpg' %})">
+
+    </div>
     <nav id="header"> 
       <div class="logo">
       <a href="{%url 'home'%}">25Hours</a>
       </div>
       <ul>
-        <li id="host">
-          {%if user.is_authenticated and  User.is_hotelOwner%}
-            <a href="{%url 'roomAdd' %}">Become Host</a> </li>
+          {%if user.is_authenticated and user.is_hotelOwner%}
+          <li id="host">
+            <a href="{%url 'roomAdd' %}">Become Host</a> 
+          </li>
             {%endif%}
+          
+            
 
-            {%if user.is_authenticated%}
+            {%if user.is_authenticated %}
             <li id="login">
               <a href="{% url 'profile' %}">Profile</a>
           </li>
@@ -87,18 +93,12 @@
 <!-- background image -->
 <section class="site-hero overlay" style="background-image: url(img/hero_5.jpg)" data-stellar-background-ratio="0.5" id="section-home">
   <div class="container">
-    <div class="row site-hero-inner justify-content-center align-items-center">
+    <div class="row site-hero-inner">
       <div class="col-md-10 text-center" data-aos="fade-up">
         <h1 class="heading">Stay With Us &amp; Relax</h1>
       </div>
     </div>
   </div>
-
-  <a class="mouse smoothscroll" href="#next" >
-    <div class="mouse-icon">
-      <span class="mouse-wheel"></span>
-    </div>
-  </a>
 </section>
 
 
@@ -119,7 +119,7 @@
             {% endcomment %}
 
 
-<section class="main">
+{% comment %} <section class="main">
    
   <div>
     {% if messages%}
@@ -131,22 +131,24 @@
     {%endif%}
     
  </div>
-</section> 
+</section>  {% endcomment %}
 
 
 
 <section class="book-section">
 <div class="inner-book">
-  <div id="demo-range-selection"></div>
+  <div class="d-flex justify-content-between" id="demo-range-selection">
     Check-in:
     <input type="date" name="demo" id="demo" placeholder="check-in">
     Check-out:
     <input type="date" id="out" placeholder="check-out">
     <input type="text" placeholder="Place Name">
     <input type="number" placeholder="Number of rooms">
-    <div class="search-btn">
+    <button class= "search-btn">Search</button>
+    {% comment %} <div class="search-btn">
         <a href="#">Search</a>
-    </div>
+    </div>   {% endcomment %}
+  </div>
 </div>
 </section> 
 
@@ -157,7 +159,7 @@
     
 <section class="cities" id="cities">
 
-  <h1 class="heading">
+  <h1 class="heading-1">
       <span>TOP CITIES</span>
       
   </h1>
@@ -198,11 +200,6 @@
 </section>
 
 <!-- packages section ends -->
-
-
-
-
-
 
 
 

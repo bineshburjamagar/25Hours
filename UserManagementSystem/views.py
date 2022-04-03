@@ -6,6 +6,8 @@ from django.contrib import messages
 from tkinter import N
 from unicodedata import name
 from django.shortcuts import render, redirect
+
+from roomManagementSystem.models import rooms
 from .models import  hotelOwner
 from django.http import JsonResponse
 from UserManagementSystem.models import hotelOwner, User
@@ -13,6 +15,7 @@ from UserManagementSystem.models import hotelOwner, User
 from django.contrib import messages
 # Create your views here.
 def index(request):
+
     return render(request, 'index.html')
 
 def signup(request):
@@ -70,19 +73,11 @@ def logoutuser(request):
 
 def userprofile(request):
     if request.user.is_authenticated:
-        return render(request, 'profile.html')
+        
+        data= rooms.objects.filter(user = request.user)
+        context = {'data': data}
+
+        return render(request, 'profile.html', {'data':data})
     else:
 
         return redirect('Login.html')
-
-def hotelName(request):
-    if request.user.is_authenticated:
-
-     data= hotelOwner.objects.all()
-     print(data)
-   
-
-    return render(request, 'profile.html')
-
-
-    

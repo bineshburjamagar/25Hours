@@ -4,8 +4,9 @@ let header=document.getElementById('header')
 const headerColorChange  = () => {
   document.body.scrollTop > 50 ||
   document.documentElement.scrollTop > 50 
-    ? header.style.background= "#000"
-    : header.style.background= "transparent"
+    ? (header.style.background= "#ffff")
+    
+    : (header.style.background= "transparent")
 };
 // When the pages is loaded
 window.addEventListener("DOMContentLoaded", () => {

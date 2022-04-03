@@ -79,9 +79,15 @@
 						<label for="">Hotel Name</label>
 						<div class="drop-down">
 							<select id="choose" name="hotel_name">
-								<option value="Hotel Yak & Yeti">Hotel Yak & Yeti</option>
-								<option value="The Famous Farm, Nuwakot">The Famous Farm</option>
-								<option value="Grand Hotel Kathmandu">Grand Hotel Kathmandu</option>
+								{% if data %}
+								{% for datas in data %}
+								
+								<option value="{{datas.hotel_name}}">
+									{{ datas.hotel_name }}
+								</option>
+								{% endfor %}
+								{% endif %}
+								
 							  </select>
 
 						</div>
@@ -91,10 +97,10 @@
 						<label for="">Room Type</label>
 						<div class="drop-down">
 							<select id="choose" name="room_type">
-								<option value="">Single</option>
-								<option value="">Double</option>
-								<option value="">Triple</option>
-								<option value="">Quad</option>
+								<option value="Single">Single</option>
+								<option value="Double">Double</option>
+								<option value="Triple">Triple</option>
+								<option value="Quad">Quad</option>
 							  </select>
 
 						</div>
@@ -104,8 +110,12 @@
 					<div class="form-wrapper">
 						<label for="">Place Name</label>
 						<input type="text" name="place_name"class="form-control">
+				
+						</div>
 					
-
+						<div class="form-wrapper">
+							<label for="">Room No</label>
+							<input type="number" name="room_number" class="form-control">
 						</div>
 
 					<div class="form-wrapper">

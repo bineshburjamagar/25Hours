@@ -13,5 +13,4 @@ urlpatterns = [
     path('logout',views.logoutuser, name="logout"),
     path('userprofile',views.userprofile, name="profile"),
     path('ownerSignup',views.ownerSignup, name="ownerRegister"),
-    url('', views.hotelName, name='hotelName'),
 ]

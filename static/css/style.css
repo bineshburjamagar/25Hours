@@ -21,15 +21,23 @@ section{
   padding:2rem 9%;
 }
 
+.hero-image{
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 nav{
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 50px;
   padding: 10px 100px;
   box-sizing: border-box;
   transition: .5s;
+  z-index: 666;
 }
 
   
@@ -42,7 +50,7 @@ nav.black{
 nav .logo{
   float: left;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 30px;
   display: flex;
   align-items: center;
 
@@ -64,7 +72,7 @@ nav ul li{
 }
 nav ul li a{
   list-style: 80px;
-  color: white;
+  
   text-decoration: none;
 }
 nav ul li:hover{
@@ -80,7 +88,7 @@ nav ul li:hover{
 #signup{
   border-radius: 10px;
   padding: 5px 8px;
-  background:#9b2f2f;
+  background:#6b6fff;
 
 }
 
@@ -163,17 +171,18 @@ ul li:hover{
   /* booking form */
 
   .book-section{
-      padding: 100px;
-      height: 50vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      position: absolute;
+      top: 71%;
+      left: 6%;
     
 
   }
   .inner-book{
       width: 100%;
-      background: #2F2E41;
+      background: #c8c8c8;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -189,10 +198,8 @@ ul li:hover{
   .search-btn{
       padding: 10px;
       margin-left: 1rem;
-      background: #000000;
+      background: #6c63ff;
       border-radius: 5px;
-  }
-  .search-btn a{
       color: white;
       font-size: 1.2rem;
       text-decoration: none;
@@ -209,6 +216,9 @@ ul li:hover{
 .heading{
     font-size: 3rem;
     text-align: center;
+    position: absolute;
+    top: 50%; 
+    color: white
 }
 .cities .box-container{
     
@@ -225,13 +235,13 @@ ul li:hover{
   }
   
   .cities .box-container .box img{
-    height: 25rem;
+    height: 18rem;
     width:100%;
     object-fit: cover;
   }
   
   .cities .box-container .box .content{
-    padding:2rem;
+    padding:22px;
   }
   
   .cities .box-container .box .content h3{
@@ -257,7 +267,7 @@ ul li:hover{
     padding:.8rem 3rem;
     border:.2rem solid white;
     cursor: pointer;
-    font-size: 1.7rem;
+    font-size: 0.7rem;
     border-radius: 10px;
   }
   
@@ -270,8 +280,9 @@ ul li:hover{
   .why{
     height: 50vh;
     /* width: 100vh; */
-    background-color: #8a8a8a;
+    background-color: #ebebeb;
     align-items: center;
+    text-align: center;
     padding: 40px 40px;
     margin: 10px 10px;
     
@@ -287,8 +298,8 @@ ul li:hover{
 
 .footer {
   font-family: "Poppins", sans-serif;
-  background: black;
-  color: white;
+  background: rgba(236, 233, 233, 0.919);
+  color: rgb(0, 0, 0);
   height: 400px;
   position: relative;
 }
@@ -306,7 +317,7 @@ ul li:hover{
 
 .footer .footer-bottom {
   background: black;
-  color: orange;
+  color: #6c63ff;
   height: 30px;
   width: 100%;
   text-align: center;
@@ -338,7 +349,7 @@ ul li:hover{
   height: 40px;
   width: 40px;
   background: #1a1a1a;
-  color: orange;
+  color:#6C63FF;
   line-height: 40px;
   text-align: center;
   font-size: 18px;
@@ -363,7 +374,7 @@ ul li:hover{
   cursor: pointer;
 }
 .footer-section .fas:hover {
-  background: orange;
+  background: #6C63FF;
 }
 .footer-section .text {
   font-size: 1.0625rem;
@@ -395,7 +406,7 @@ ul li:hover{
 }
 .footer-section input:focus,
 .footer-section textarea:focus {
-  outline-color: orange;
+  outline-color: #2F2E41;
 }
 .footer-section input {
   height: 35px;
@@ -457,6 +468,9 @@ ul li:hover{
     .book-section{
         padding: 10rem 0;
 
+    }
+    .cities{
+      margin-top: 20px;
     }
 
 }
