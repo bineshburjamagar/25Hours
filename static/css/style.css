@@ -1,14 +1,13 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;500&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Alegreya Sans', sans-serif;
-    outline: none; border:none;
+    font-family: 'Roboto', sans-seri;
+    outline: none;
+    border:none;
     text-decoration: none;
     transition: all .2s linear;
-   
 }
 
 html{
@@ -69,11 +68,15 @@ nav ul{
 }
 nav ul li{
   list-style: none;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* align-content: flex-start; */
+  color: white;
 }
 nav ul li a{
   list-style: 80px;
-  
   text-decoration: none;
+  /* color: aliceblue; */
 }
 nav ul li:hover{
   transform: scale(1.1);
@@ -82,14 +85,20 @@ nav ul li:hover{
 #host, #login{
   border-radius: 10px;
   padding: 5px 8px;
+  color: aliceblue;
   border: 1px solid #6C63FF;
+  /* color: white; */
+  /* background: white; */
   margin-right: 5px;
+  /* background-color: white; */
 }
+
+
 #signup{
   border-radius: 10px;
   padding: 5px 8px;
-  background:#6b6fff;
-
+  background: #999cff;
+  color: white;
 }
 
 
