@@ -135,20 +135,22 @@
 
 
 <section class="book-section">
+  <form action="{% url 'search'%}" method="GET" class="d-flex">
 <div class="inner-book">
   <div class="d-flex justify-content-between" id="demo-range-selection">
     Check-in:
     <input type="date" name="demo" id="demo" placeholder="check-in">
     Check-out:
     <input type="date" id="out" placeholder="check-out">
-    <input type="text" placeholder="Place Name">
+    <input type="text" name="query" placeholder="Place Name">
     <input type="number" placeholder="Number of rooms">
-    <button class= "search-btn">Search</button>
+    <button class= "search-btn" type="submit">Search</button>
     {% comment %} <div class="search-btn">
         <a href="#">Search</a>
     </div>   {% endcomment %}
   </div>
 </div>
+</form>
 </section> 
 
 <!--top loactions-->

@@ -81,3 +81,13 @@ def userprofile(request):
     else:
 
         return redirect('Login.html')
+
+def searchbar(request):
+    if request.method=='GET':
+        query = request.GET.get('query')
+        if query:
+           room = rooms.objects.filter(place_name=query) 
+           return render(request, 'searchbar.html', {'room':room})
+        else:
+               print('No information to show')
+               return request(request, 'searchbar.html')
