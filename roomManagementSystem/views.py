@@ -3,11 +3,11 @@ from roomManagementSystem.forms import CreateRoomForm
 from .models import rooms
 
 from django.contrib import messages
-from UserManagementSystem.models import  hotelOwner
+from UserManagementSystem.models import  hotel
 
 # Create your views here.
 def addRoom(request):
-    data= hotelOwner.objects.filter(user_id = request.user.id)
+    data= hotel.objects.filter(user_id = request.user.id)
     context = {'data': data}
     if request.method == "POST":
         print(request.user)
@@ -37,4 +37,24 @@ def room(request):
     
     roomDetails=rooms.objects.all()
     return render(request, 'rooms.html',{'rooms':roomDetails})
+
+
+def searchbar(request):
+    # if request.method=='GET':
+    #     query = request.GET['query']
+    #     if query:
+    #        room = rooms.objects.filter(hotel_name__icontains=query) 
+    #        return render(request, 'searchbar.html', {'rooms':room}, {'query':query})
+    #     else:
+    #            print('No information to show')
+    #            return request(request, 'searchbar.html')
+    query = request.GET['query']
+    if query=='':
+        return redirect('rm')
+    else:
+        room = rooms.objects.filter(hotel_name__icontains=query)
+        
+    context = {'query':query, 'rooms':room}
+    return render (request, 'searchbar.html',context)
+
 

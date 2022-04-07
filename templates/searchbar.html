@@ -1,39 +1,37 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block content%}
 
 
-{% block content %}
+<div class="container" style="margin-top:70px ;">
+<div class="row">
+  <h2>SEARCH RESULTS:</h2>
+  {%if rooms %}      
+  {%for room in rooms%}
+  <div class="col-md-4 mb-3 d-flex align-items-stretch">
+    <div class="card">
+      <img src="{{room.room_image.url}}" class="card-img-top" alt="Card Image">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title"> {{room.hotel_name }}</h5>
+        <p class="card-text mb-4">{{room.room_desc}}</p>
+        <a href="#" class="btn btn-primary mt-auto align-self-start">Book now</a>
+      </div>
+    </div>
+  </div>
+    {%endfor%}
+    {%else%}
+   
 
+    <p>No search results</p>
+     <p>Your search <b>{{query}}</b> didn't match any documents.</p>
+    <br>
+    Suggestions:
+    Please try different keywords.
 
-<h2 class="text center">Search Results</h2>
-<hr>
-
-        <div class="container">
-          <div class="row pt-5">
-            <div class="col-12">
-              <h3 class="text-uppercase border-bottom mb-4">TOP CITIES</h3>
-            </div>
-          </div>
-          <div class="row">
-            {%for room in rooms%}
-            <!--ADD CLASSES HERE d-flex align-items-stretch-->
-            <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-              <div class="card">
-                <img src="{{room.room_image.url}}" class="card-img-top" alt="Card Image">
-                <div class="card-body d-flex flex-column">
-                  <h5 class="card-title"> {{room.hotel_name }}</h5>
-                  <p class="card-text mb-4">{{room.room_desc}}</p>
-                  <a href="#" class="btn btn-primary mt-auto align-self-start">Book now</a>
-                </div>
-              </div>
-              
-            </div>
-            {%endfor%}
-            <div class="col-12">
-    
-            </div>
-          </div>
-        </div>
-    
+    {%endif%}
+     
+  
+</div>
 </div>
 
-
-{% endblock content %}
+{%endblock content%}

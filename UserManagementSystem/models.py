@@ -27,7 +27,7 @@ class User(AbstractUser):
     
 
 
-class hotelOwner(models.Model):
+class hotel(models.Model):
     # USERNAME_FIELD = 'username'
     
 

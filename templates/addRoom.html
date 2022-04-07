@@ -1,74 +1,9 @@
-{%load bootstrap5 %}
+{% extends 'base.html' %}
 {%load static%}
-
-{% comment %} <!DOCTYPE html> 
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
-    <link rel="stylesheet" href="{%static 'css/addroom.css'%}">
-    
-
-</head>
-<body>
-  <form action="roomAdd" method="POST">
-    {% csrf_token %}  
-    <div class ="forms">
-        <h1>Welcome Host</h1>
-
-     <div class="row mb-3">
-        <label for="colFormLabel" class="col-sm-2 col-form-label">Hotel Name</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="colFormLabel" name="hotel_name" placeholder="Enter a hotelname">
-        </div>
-     </div>
-    
-     <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">Room Types</label>
-        <select class="form-select" name="room_type" id="inputGroupSelect01">
-          <option selected>Choose...</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div>
-      <div class="row mb-3">
-        <label for="colFormLabel" class="col-sm-2 col-form-label">Price</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control"name="room_price" id="colFormLabel" placeholder="NRS">
-        </div>
-     </div>
-     <p>Upload Image</p>
-     <div class="input-group mb-3">
-        <input type="file" class="form-control" name="room_image" id="inputGroupFile02">
-        <label class="input-group-text" for="inputGroupFile02">Upload</label>
-      </div>
-
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Discription</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" name="room_desc" rows="3"></textarea>
-      </div>
-      {% comment %} <input type="submit" value="ADD"> 
-      <button type="submit">Save</button>
-    </div>
-  </form>
-<script src="{% static 'bootstrap.min.js' %}"></script>  
-</body>
-</html> {% endcomment %}
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Host Room</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{%block content%}
 
 
-		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="{%static 'css/addroom.css'%}">
-	</head>
 
-	<body>
-    
 
 		<div class="wrapper" >
 			<div class="inner">
@@ -97,16 +32,25 @@
 						<label for="">Room Type</label>
 						<div class="drop-down">
 							<select id="choose" name="room_type">
-								<option value="Single">Single</option>
-								<option value="Double">Double</option>
-								<option value="Triple">Triple</option>
-								<option value="Quad">Quad</option>
+								<option value="">{{rooms.room_type}}</option>
+								
 							  </select>
 
 						</div>
 					
 					
 					</div>
+					<div class="form-wrapper">
+						<label for="">Available From</label>
+						<input type="date" name="start_date"class="form-control">
+				
+						</div>
+
+					<div class="form-wrapper">
+							<label for="">Available To</label>
+							<input type="date" name="end_date"class="form-control">
+					
+							</div>
 					<div class="form-wrapper">
 						<label for="">Place Name</label>
 						<input type="text" name="place_name"class="form-control">
@@ -139,6 +83,4 @@
       
 			</div>
 		</div>
-		
-	</body>
-</html>
+{%endblock%}

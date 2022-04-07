@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from UserManagementSystem.models import User, hotelOwner
+from UserManagementSystem.models import User, hotel
 
 
 # class CreateUserForm(UserCreationForm):

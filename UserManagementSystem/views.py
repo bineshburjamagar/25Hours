@@ -8,9 +8,9 @@ from unicodedata import name
 from django.shortcuts import render, redirect
 
 from roomManagementSystem.models import rooms
-from .models import  hotelOwner
+
 from django.http import JsonResponse
-from UserManagementSystem.models import hotelOwner, User
+
 
 from django.contrib import messages
 # Create your views here.
@@ -77,17 +77,7 @@ def userprofile(request):
         data= rooms.objects.filter(user = request.user)
         context = {'data': data}
 
-        return render(request, 'profile.html', {'data':data})
+        return render(request, 'profile.html', context)
     else:
 
         return redirect('Login.html')
-
-def searchbar(request):
-    if request.method=='GET':
-        query = request.GET.get('query')
-        if query:
-           room = rooms.objects.filter(place_name=query) 
-           return render(request, 'searchbar.html', {'room':room})
-        else:
-               print('No information to show')
-               return request(request, 'searchbar.html')
