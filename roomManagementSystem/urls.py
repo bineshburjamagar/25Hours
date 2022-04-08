@@ -8,7 +8,10 @@ from django.conf.urls.static import static
 urlpatterns = [
 
     path("roomAdd",views.addRoom, name="roomAdd"),
-    path("details",views.room, name="rm"),
+    path("availableRooms",views.room, name="rm"),
     path('search',views.searchbar, name="search"),
+    # path('product-detail/<int:id>',views.productDetail,name='productDetail'),
+    path('details',views.roomDetails, name="details"),
+    path('details/<int:id>',views.roomDetails, name="details")
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

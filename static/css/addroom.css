@@ -156,6 +156,26 @@ button {
 button:hover{
   background-color: #999;
 }
+
+.mt-auto {
+  margin-right: 26px;
+}
+
+.card-img-top {
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h5.card-title{
+  color: #e91e63;
+}
+.btn-primary{
+  color: #fff;
+  background-color: #6c63ff;
+  border-color: #ffffff;
+}
+
 @media (max-width: 991px) {
   .inner {
     min-width: 786px; } }
@@ -171,9 +191,4 @@ button:hover{
     padding-right: 15px;
     padding-left: 15px; } }
 
-    .card-img-top {
-      height: 400px;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
+    

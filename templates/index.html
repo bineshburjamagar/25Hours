@@ -53,43 +53,10 @@
     </div>
   </nav>
   
-    
-      <!-- navigation bar -->
-      {% comment %} <header>
-      
-        <div id="brand">
-            <a href="">   25 Hours
-            </a>
-    
-        </div>
-    </div>
+  
 
- <nav>
-            
- </nav>
-{% comment %} 
- <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
-     <div class="bar1"></div>
-     <div class="bar2"></div>
-     <div class="bar3"></div>
 
-     <ul class="mobile-menu">
-        <li id="host">
-            <a href="">Become Host</a> </li>
-        <li id="login">
-            <a href="./login">Login</a>
-        </li>
-        <li id="signup">
-            <a href="">Signup</a>
-        </li>
-        </ul>
 
-     </ul>
-
- </div> {% endcomment %}
-
-{% comment %} </header> {% endcomment %}
-<!-- background image -->
 <section class="site-hero overlay" style="background-image: url(img/hero_5.jpg)" data-stellar-background-ratio="0.5" id="section-home">
   <div class="container">
     <div class="row site-hero-inner">
@@ -102,36 +69,6 @@
 
 
 
- {% comment %} <div class="container">
-  <!-- Content here -->
-  
-<div class="bg-image" 
-     style="background-image: url('{% static 'img/hotel.jpg'%}');
-            height: 90vh;
-            border-radius: 0 0 10% 10%;
-            background-size: static;
-            ">
-            {% comment %} <h1>
-              Welcome to 25 Hours
-              
-            </h1>
-            {% endcomment %}
-
-
-{% comment %} <section class="main">
-   
-  <div>
-    {% if messages%}
-      {% for message in messages%}
-      <div class="alert alert-{{message.tags}}">{{message}}</div>
-      {%endfor%}
-     
-
-    {%endif%}
-    
- </div>
-</section>  {% endcomment %}
-
 
 
 <section class="book-section">
@@ -139,15 +76,12 @@
 <div class="inner-book">
   <div class="d-flex justify-content-between" id="demo-range-selection">
     Check-in:
-    <input type="date"  id="demo" placeholder="check-in">
+    <input type="date" name="query"  id="demo" placeholder="check-in">
     Check-out:
-    <input type="date" id="out" placeholder="check-out">
+    <input type="date"name="query" id="out" placeholder="check-out">
     <input type="search" name="query" placeholder="Place Name">
     <input type="number" placeholder="Number of rooms">
     <button class= "search-btn" type="submit">Search</button>
-    {% comment %} <div class="search-btn">
-        <a href="#">Search</a>
-    </div>   {% endcomment %}
   </div>
 </div>
 </form>

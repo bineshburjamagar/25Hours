@@ -8,15 +8,21 @@
   <h2>SEARCH RESULTS:</h2>
   {%if rooms %}      
   {%for room in rooms%}
-  <div class="col-md-4 mb-3 d-flex align-items-stretch">
+  <div class="col-md-4 mb-3 ">
     <div class="card">
-      <img src="{{room.room_image.url}}" class="card-img-top" alt="Card Image">
+      <div class="card-img-top" style="background-image: url({{room.room_image.url}});">
+      </div>
+
       <div class="card-body d-flex flex-column">
-        <h5 class="card-title"> {{room.hotel_name }}</h5>
-        <p class="card-text mb-4">{{room.room_desc}}</p>
-        <a href="#" class="btn btn-primary mt-auto align-self-start">Book now</a>
+        <h3 class="card-title"> {{room.place_name }}</h3>
+        <h5 class="card-title"> {{room.room_price }}</h5>
+        <div class="d-flex">
+          <a href="{%url 'details'%}" class="btn btn-primary mt-auto align-self-start">View Details</a>
+          <a href="#" class="btn btn-primary mt-auto align-self-start">Book now</a>
+        </div>
       </div>
     </div>
+    
   </div>
     {%endfor%}
     {%else%}

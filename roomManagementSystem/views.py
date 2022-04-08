@@ -16,6 +16,8 @@ def addRoom(request):
         room_type=request.POST["room_type"],
         place_name=request.POST["place_name"],
         room_price=request.POST["room_price"],
+        start_date= request.POST["start_date"],
+        end_date=request.POST["end_date"],
         room_number=request.POST["room_number"],
         room_image=request.FILES["room_image"],
         room_desc=request.POST["room_desc"],
@@ -35,26 +37,30 @@ def addRoom(request):
         # return render(request, 'addRoom.html')
 def room(request):
     
-    roomDetails=rooms.objects.all()
-    return render(request, 'rooms.html',{'rooms':roomDetails})
+    allRooms=rooms.objects.all()
+    return render(request, 'rooms.html',{'rooms':allRooms})
 
 
 def searchbar(request):
-    # if request.method=='GET':
-    #     query = request.GET['query']
-    #     if query:
-    #        room = rooms.objects.filter(hotel_name__icontains=query) 
-    #        return render(request, 'searchbar.html', {'rooms':room}, {'query':query})
-    #     else:
-    #            print('No information to show')
-    #            return request(request, 'searchbar.html')
+   
     query = request.GET['query']
     if query=='':
         return redirect('rm')
     else:
-        room = rooms.objects.filter(hotel_name__icontains=query)
+        place = rooms.objects.filter(place_name__icontains=query)
+        checkIn = rooms.objects.filter(start_date__icontains=query)
+        checkOut = rooms.objects.filter(end_date__icontains=query)
+        search=place.union(checkIn,checkOut)
+    
+
+
         
-    context = {'query':query, 'rooms':room}
+    context = {'query':query, 'rooms':search}
     return render (request, 'searchbar.html',context)
 
+def roomDetails(request,id):
+    data =rooms.objects.filter(id=id)
+    context= {"roomDetails": data[0]}
+
+    return render(request,'roomDetails.html',context)
 
