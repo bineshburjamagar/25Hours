@@ -5,18 +5,110 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="./css/index.css">  
-    <title>Hotel Booking Management System</title>
+    <link rel="icon" href="{%static 'favicon/favicon.ico'%}" type="image/x-icon">  
+    <link rel="stylesheet" href="{%static 'css/loginSignup.css'%}"> 
+    <title>login</title>
 </head>
 
 <body style="background-color: #fff;">
   
-    
+
+<div class="container">
+    <div class="content">
+      <a href="{%url 'home'%}" class="logo">
+       25 Hours
+      </a>
+      <div class="image"></div>
+      <div class="text">
+        WELCOME BACK !
+      </div>
+    </div>
+    <form id="form" action="/login" method="POST">
+        {% csrf_token %}  
+      <div class="social">
+        <div class="title">Login Here</div>
+  
+
+  
+      <!-- /** 
+            * ! user name Input here
+           **/ -->
+  
+      <div>
+        <label for="username">User Name</label>
+        <i class="fas fa-user"></i>
+        <input type="text" name="username" id="username" placeholder="Joy Shaheb" />
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div class="error"></div>
+      </div>
+  
+      {% comment %} <!-- /** 
+            * ! Email Input here
+           **/ -->
+  
+      <div>
+        <label for="email">Email</label>
+        <i class="far fa-envelope"></i>
+        <input type="email" name="email" id="email" placeholder="abc@gmail.com" />
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div class="error"></div>
+      </div> {% endcomment %}
+  
+      <!-- /** 
+            * ! Password Input here
+           **/ -->
+  
+      <div>
+        <label for="password">Password</label>
+        <i class="fas fa-lock"></i>
+        <input type="password" name="password" id="password" placeholder="Password here" />
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div class="error"></div>
+      </div>
+  
+      <button type="submit"value="Login" id="submit">Login</button>
+    </form>
+    <br>
+    <div class="question">
+        Didn't Have an Account? <br />
+        <a href="{%url 'register'%}"><span>SignUp</span></a>
+      </div>
+      
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} 
+
           
         <div class="loginbox">
 
-        {% comment %} <img src="{%static 'img/hero_5.jpg'%} width="100px" height="50px" class="avatar"> {% endcomment %}
+         <img src="{%static 'img/hero_5.jpg'%} width="100px" height="50px" class="avatar"> 
 
         <h1>Login Here</h1>
 
@@ -30,14 +122,14 @@
             <a href="#">Forget your password?</a><br>
             <a href="{% url 'register' %}">Don't have an account?</a>
 
-        </form>
+        </form> {% endcomment %}
 
 
 
 </body>
 
 
-<style type="text/css">
+{% comment %} <style type="text/css">
 
 
 
@@ -122,5 +214,5 @@ h1{
 }
 
 
-</style>
+</style> {% endcomment %}
 </html>

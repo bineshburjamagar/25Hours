@@ -22,7 +22,7 @@
               <h3 class="card-title"> {{room.place_name }}</h3>
               <h5 class="card-title"> {{room.room_price }}</h5>
               <div class="d-flex">
-                <a href="{%url 'details'%}" class="btn btn-primary mt-auto align-self-start">View Details</a>
+                <a href="{%url 'details'%}/{{rooms.id}}" class="btn btn-primary mt-auto align-self-start">View Details</a>
                 <a href="#" class="btn btn-primary mt-auto align-self-start">Book Now</a>
               </div>
             </div>

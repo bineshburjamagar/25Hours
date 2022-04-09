@@ -1,5 +1,130 @@
 
 
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{%static 'favicon/favicon.ico'%}" type="image/x-icon">
+    <link rel="stylesheet" href="{%static 'css/loginSignup.css'%}">
+    <title>Signup</title>
+</head>
+
+<body style="background-color: #fff;">
+
+
+<div class="container">
+    <div class="content">
+      <a href="{%url 'home'%}" class="logo">
+       25 Hours
+      </a>
+      <div class="image"></div>
+      <div class="text">
+        WELCOME TO 25HOURS
+      </div>
+    </div>
+    <form id="form" action="/signup" method="POST">
+        {% csrf_token %}
+      <div class="social">
+        <div class="title">Get Started</div>
+
+
+
+        <div>
+          <label for="first name">First Name</label>
+          <i class="fas fa-user"></i>
+          <input type="text" name="first_name" id="FirstName" placeholder="Enter your First Name" />
+          <i class="fas fa-exclamation-circle failure-icon"></i>
+          <i class="far fa-check-circle success-icon"></i>
+          <div class="error"></div>
+        </div>
+
+
+        <div>
+          <label for="first name">Last Name</label>
+          <i class="fas fa-user"></i>
+          <input type="text" name="last_name" id="LastName" placeholder="Enter your Last Name" />
+          <i class="fas fa-exclamation-circle failure-icon"></i>
+          <i class="far fa-check-circle success-icon"></i>
+          <div class="error"></div>
+        </div>
+
+
+
+      <!-- /**
+            * ! user name Input here
+           **/ -->
+
+      <div>
+        <label for="username">User Name</label>
+        <i class="fas fa-user"></i>
+        <input type="text" name="username" id="User" placeholder="Enter username" />
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div class="error"></div>
+      </div>
+
+       <!-- /**
+            * ! Email Input here
+           **/ -->
+
+      <div>
+        <label for="email">Email</label>
+        <i class="far fa-envelope"></i>
+        <input type="email" name="email" id="email" placeholder="abc@gmail.com" />
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div class="error"></div>
+      </div> 
+
+      <!-- /**
+            * ! Password Input here
+           **/ -->
+
+      <div>
+        <label for="password">Password</label>
+        <i class="fas fa-lock"></i>
+        <input type="password" name="password1" id="password" placeholder="Password here" />
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div class="error"></div>
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <i class="fas fa-lock"></i>
+        <input type="password" name="password2" id="password" placeholder="Confirm Password here" />
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div class="error"></div>
+      </div>
+
+      <button type="submit"value="submit" id="submit">Signup</button>
+    </form>
+    <br>
+    <div class="question">
+        Already Have an Account? <br/>
+        <a href="{%url 'log'%}"><span>Login</span></a>
+      </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
 {% extends 'base.html' %}
 {%load static%}
 {%block content%}
@@ -7,14 +132,14 @@
 
 <div class="signup">
 
-  
+
   <h1>SignUp</h1>
 
   <form action="/signup" method="POST">
-    {% csrf_token %}   
-    
+    {% csrf_token %}
+
     <label for="first_name">First Name</label>
-<input type="text" id="FirstName" name="first_name" placeholder="Enter your First Name" required>  
+<input type="text" id="FirstName" name="first_name" placeholder="Enter your First Name" required>
     <label for="last_name">  Last number</label>
     <input type="text" id="LastName" name="last_name" placeholder="Enter your Second Name" required>
     <label for="email">  Email</label>
@@ -25,7 +150,7 @@
   <input type="password" id="password" name="password1" placeholder="Enter your password" required>
   <label for="password2"> Password</label>
   <input type="password" id="password" name="password2" placeholder="Enter your password" required>
-  
+
     <input type="submit" value="Submit">
   </form>
 
@@ -50,7 +175,7 @@ transform: translate(-50%,-50%);
 box-sizing: border-box;
 padding: 70px 30px;
 opacity: 0.95;
-border-radius:8px; 
+border-radius:8px;
 }
 
 .avatar{
@@ -121,4 +246,4 @@ color: #6C63FF;
 
 </style>
 {%endblock%}
-  
+   {% endcomment %}
