@@ -10,14 +10,18 @@
   {%for room in rooms%}
   <div class="col-md-4 mb-3 ">
     <div class="card">
-      <div class="card-img-top" style="background-image: url({{room.room_image.url}});">
+      {% if room.cover_image %}
+      <div class="card-img-top" style="background-image: url({{room.cover_image.url}});">
       </div>
+      {% else %}
+      {%endif%}
+
 
       <div class="card-body d-flex flex-column">
         <h3 class="card-title"> {{room.place_name }}</h3>
-        <h5 class="card-title"> {{room.room_price }}</h5>
+        <h5 class="card-title"> RS {{room.room_price }}/ Night</h5>
         <div class="d-flex">
-          <a href="{%url 'details'%}" class="btn btn-primary mt-auto align-self-start">View Details</a>
+          <a href="{%url 'details' room.id%}" class="btn btn-primary mt-auto align-self-start">View Details</a>
           <a href="#" class="btn btn-primary mt-auto align-self-start">Book now</a>
         </div>
       </div>

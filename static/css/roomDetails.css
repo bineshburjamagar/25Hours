@@ -16,5 +16,19 @@ img{
 
 .right-box{
     border: 1px solid;
+    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+
+}
+.inner-book2 input{
+    display: block;
+    
+    
+}
+.inner-book2 #check{border: 1px solid #d1d1d1;
+border-radius: 8px;
+padding: 5px;
+background-color: whitesmoke;
+width: 140px;
+font-size: 15px;
 
 }

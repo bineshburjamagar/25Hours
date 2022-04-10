@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from .models import PhotoGallary
+from .forms import ImageForm
 from roomManagementSystem.forms import CreateRoomForm
 from .models import rooms
 
@@ -19,10 +21,12 @@ def addRoom(request):
         start_date= request.POST["start_date"],
         end_date=request.POST["end_date"],
         room_number=request.POST["room_number"],
-        room_image=request.FILES["room_image"],
+        cover_image=request.FILES["cover_image"],
         room_desc=request.POST["room_desc"],
         user = request.user
+        
         )
+        
         # messages.success(request, 'Your account was created successfully' )
        
         return redirect('home')
@@ -35,6 +39,27 @@ def addRoom(request):
         # room.save()
         # print("Kaam gardai xa")
         # return render(request, 'addRoom.html')
+
+
+
+def multiple_upload(request):
+    img = PhotoGallary.objects.all()
+    fm = ImageForm()
+    if request.method =='POST':
+        fm = ImageForm(request.POST,request.FILES)
+        files = request.FILES.getlist('room_image')
+        if fm.is_valid():
+     
+            for f in files:
+             gallary = PhotoGallary(room_image=f)
+             gallary.save()
+
+            return redirect('home')
+
+    context={'form':fm,'gallimg':img}
+    print(img)
+    return render(request, 'addRoom.html',context)
+
 def room(request):
     
     allRooms=rooms.objects.all()

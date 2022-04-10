@@ -32,8 +32,8 @@
 						<label for="">Room Type</label>
 						<div class="drop-down">
 							<select id="choose" name="room_type">
-								<option value="">Single</option>
-								<option value="">Double</option>
+								<option value="Single">Single</option>
+								<option value="Double">Double</option>
 								
 							  </select>
 
@@ -64,13 +64,16 @@
 						</div>
 
 					<div class="form-wrapper">
-						<label for="">Price *Incl. of all taxes</label>
+						<label for="">Price <span>*Incl. of all taxes<span></label>
 						<input type="number" name="room_price" class="form-control">
 					</div>
-					<div class="form-wrapper">
-						<label for="">Upload Images</label>
-						<input type="file" multiple="" data-max_length="20" name="room_image" class="upload__inputfile">
+				
+					<div class="form-wrapper">					
+						<label for="">Upload cover image</label>
+						<input type="file" multiple name="cover_image" class="upload__inputfile">
+						
 					</div>
+				    
 					<div class="form-wrapper">
 						<label for="">Description</label>
 						<!-- <input type="text" class="form-control-desc"> -->
@@ -81,6 +84,15 @@
 								
 					<button>Register Now</button>
 				</form>
+				{% comment %} <div class="form-wrapper">
+						
+					{% for fm in form%}
+					{{fm.tag_labels}} {{fm}} {{fm.errors|striptags}}
+					{% endfor %}
+					<label for="">Upload Images</label>
+					<input type="file" multiple name="room_image" class="upload__inputfile">
+					
+				</div> {% endcomment %}
       
 			</div>
 		</div>
