@@ -12,6 +12,7 @@ urlpatterns = [
     path('search',views.searchbar, name="search"),
     # path('product-detail/<int:id>',views.productDetail,name='productDetail'),
     path('details',views.roomDetails, name="details"),
-    path('details/<int:id>',views.roomDetails, name="details")
+    path('details/<int:id>',views.roomDetails, name="details"),
+    path('payment',views.payment, name="payment")
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

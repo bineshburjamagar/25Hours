@@ -89,3 +89,5 @@ def roomDetails(request,id):
 
     return render(request,'roomDetails.html',context)
 
+def payment(request):
+    return render(request, 'payment.html')
