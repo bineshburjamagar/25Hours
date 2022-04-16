@@ -25,7 +25,7 @@ img{
     
     
 }
-.inner-book2 #check{border: 1px solid #d1d1d1;
+.inner-book2 #d1{border: 1px solid #d1d1d1;
 border-radius: 8px;
 padding: 5px;
 background-color: whitesmoke;
@@ -33,3 +33,28 @@ width: 140px;
 font-size: 15px;
 
 }
+.inner-book2 #d2{border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: whitesmoke;
+    width: 140px;
+    font-size: 15px;
+    
+    }
+
+    .btn-secondary {
+        color: #fff;
+        background-color: #673ab7;
+        border-color: #6c757d;
+        margin-left: 132px;
+        font-size: 12px;
+    }
+    .amount {
+        display: flex;
+        margin-left: 198px;
+    }
+    .col {
+        display: flex;
+        padding: 16px;
+        font-weight: lighter;
+    }
