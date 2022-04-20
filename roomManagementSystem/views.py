@@ -1,8 +1,15 @@
+from lib2to3.pgen2 import token
+from multiprocessing import context
+from tabnanny import check
+from venv import create
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from .models import PhotoGallary
+from django.urls import reverse
+from .models import PhotoGallary, bookedDetails, reservedDetails
 from .forms import ImageForm
-from roomManagementSystem.forms import CreateRoomForm
 from .models import rooms
+import requests
+
 
 from django.contrib import messages
 from UserManagementSystem.models import  hotel
@@ -13,6 +20,7 @@ def addRoom(request):
     context = {'data': data}
     if request.method == "POST":
         print(request.user)
+        roomId = rooms.id
         room = rooms.objects.create(
         hotel_name=request.POST["hotel_name"],
         room_type=request.POST["room_type"],
@@ -89,5 +97,76 @@ def roomDetails(request,id):
 
     return render(request,'roomDetails.html',context)
 
+def reserved_details(request,id):
+    data = reservedDetails.objects.filter(user_id = request.user.id)
+    room =rooms.objects.filter(id=id)
+    context = {'data': data} 
+    if request.method == 'POST':
+        roomId = request.POST["reserve-btn"]
+        room = rooms.objects.get(id=roomId)
+        reserved = reservedDetails.objects.create(
+        check_in=request.POST["check_in"],
+        check_out=request.POST["check_out"],
+        total_price=request.POST["total_price"],
+        user = request.user,
+        rooms = room
+         )
+         
+        return redirect(reverse('payment')+ "?r_id="+ str(reserved.id))
+
+
+    else:
+         forms = reservedDetails()
+
+    return render(request, 'roomDetails.html', context)
+
+
+
 def payment(request):
-    return render(request, 'payment.html')
+    #  data = reservedDetails.objects.filter(user_id = request.user).last
+    #  context = {'data': data} 
+     r_id = request.GET.get("r_id")
+     reserved = reservedDetails.objects.get(id=r_id)
+     context={
+         "reserved":reserved
+     }
+     return render(request, 'payment.html', context)
+
+def paymentVerify(request):
+    token= request.GET.get("token")
+    amount= request.GET.get("amount")
+    r_id= request.GET.get("reserved_id")
+    print(token,amount,r_id)
+
+   
+    url = "https://khalti.com/api/v2/payment/verify/"
+    payload = {
+    "token": token,
+    "amount": amount
+    }
+    headers = {
+        "Authorization": "Key test_secret_key_69b9cb09e56d4c579e6f55d857329f3d"
+    }
+    
+    reserved_obj = reservedDetails.objects.get(id=r_id)
+
+
+    response = requests.post(url, payload, headers = headers)
+    resp_dict = response.json()
+    print(resp_dict)
+    print(response)
+    if resp_dict.get("idx"):
+        success = True
+        reserved_obj.payement_status = True
+        # bookedDetails.self_save()
+        reserved_obj.save()
+    else:
+        success = False
+
+    data = {
+        "success": success
+    }
+    return JsonResponse(data)
+
+
+    

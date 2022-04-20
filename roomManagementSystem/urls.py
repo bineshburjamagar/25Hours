@@ -1,3 +1,4 @@
+
 from unicodedata import name
 from xml.dom.minidom import Document
 from django.conf import settings
@@ -13,6 +14,10 @@ urlpatterns = [
     # path('product-detail/<int:id>',views.productDetail,name='productDetail'),
     path('details',views.roomDetails, name="details"),
     path('details/<int:id>',views.roomDetails, name="details"),
-    path('payment',views.payment, name="payment")
+    path('payment',views.payment, name="payment"),
+  
+    path('reservedDetails/<int:id>',views.reserved_details, name="reservedDetails"),
+    path('payment-verify', views.paymentVerify, name="paymentVerify"),
+
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

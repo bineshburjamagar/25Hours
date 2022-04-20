@@ -4,25 +4,39 @@
 
     <script  src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <div class="container">
         <div class="booking-details">
         <h2>Request to book</h2>
+        </div>
+        <div class="row">
+            <h6>Your Bookings Details</h6>
+            <h3>Your booking amount is Rs{{reserved.total_price}}</h3>
+            {% comment %} <div class="column">
+            Check In:  {{data.check_in}}
+            <br>
+            Check In:  {{data.check_out}}
+           
+            </div> {% endcomment %}
+
+            
         </div>
 
 
     <button id="payment-button">Pay with Khalti</button>
  
     </div>
+ 
 
 <script>
 
     var config = {
         // replace the publicKey with yours
         "publicKey": "test_public_key_878189eb6a814114b2b0579c77d01fd1",
-        "productIdentity": "1234567890",
-        "productName": "Dragon",
-        "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+        "productIdentity": "reserved_{{reserved.id}}",
+        "productName": "reserved_{{reserved.id}}",
+        "productUrl": "http://localhost:8000",
         "paymentPreference": [
             "KHALTI",
             "EBANKING",
@@ -33,6 +47,15 @@
         "eventHandler": {
             onSuccess (payload) {
                 // hit merchant api for initiating verfication
+                axios.get("payment-verify",{
+                    params: {
+                        "token": payload.token,
+                        "amount": payload.amount,
+                        "reserved_id": "{{reserved.id}}"
+                    }
+                }).then(function(resp){
+                    console.log(resp.data)
+                })
                 console.log(payload);
             },
             onError (error) {
@@ -48,7 +71,7 @@
     var btn = document.getElementById("payment-button");
     btn.onclick = function () {
         // minimum transaction amount must be 10, i.e 1000 in paisa.
-        checkout.show({amount: 1000});
+        checkout.show({amount: {{reserved.total_price}}});
     }
 </script>
 {%endblock%}

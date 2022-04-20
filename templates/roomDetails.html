@@ -56,23 +56,29 @@
     border-width: 1px;">
       <h6 class="fw-normal">RS {{roomDetails.room_price}}<span class="fw-light">night</span></h6>
       <div class="inner-book2">
-         
+         <form action="/reservedDetails/{{roomDetails.id}}" method="POST">
+           {% csrf_token %}
           Check-in:
-          <input type="date" name="query"  id="d1" placeholder="check-in">
+          <input type="date" name="check_in"  id="d1" placeholder="check-in"required/>
         
           Check-out:
-          <input type="date"name="query" id="d2" placeholder="check-out"  onchange="calculateDays()">
+          <input type="date"name="check_out" id="d2" placeholder="check-out"  onchange="calculateDays()" required/>
           <div class="row">
-          <div class="col">Total price</div>
-            <div class="col"> 
-              RS<p id="output" >{{roomDetails.room_price}}</p>
+          <div class="col align-items-start">
+          Total price
+    
+          </div>
+            <div class="col align-items-end"> 
+              RS<input type="text" id="output" name="total_price" value="{{roomDetails.room_price}}" />
             </div>
           </div>
 
     </div>
-      <a href="{% url 'payment' %}" class="btn btn-primary" type="button" style="background-color:#6c63ff; width:100px">Reserve</a>
+      <button class="btn btn-primary" type="submit" style="background-color:#6c63ff; width:100px" name="reserve-btn" value="{{roomDetails.id}}">Reserve</button>
     </div>
   </div>
+</form>
+
   {%if rooms %}      
   {%for room in rooms%}
   <div class="col-md-4 mb-3 ">
@@ -112,7 +118,7 @@
     const dateTwo = new Date(d2);
     const time = Math.abs(dateTwo - dateOne);
     const days = Math.ceil(time / (1000 * 60 * 60 * 24)* {{roomDetails.room_price}});    
-    document.getElementById("output").innerHTML=days;    
+    document.getElementById("output").value=days;    
     }    
     </script>
   

@@ -17,6 +17,8 @@ class rooms(models.Model):
     end_date = models.CharField(max_length=30, null=True, blank=True)
     cover_image = models.ImageField(upload_to='', null=True)
     room_desc = models.TextField()
+
+    
    
     
 class PhotoGallary(models.Model):
@@ -24,3 +26,22 @@ class PhotoGallary(models.Model):
     room_image = models.FileField(upload_to='gallaries',blank=True,null=True)
     
 
+class reservedDetails(models.Model):
+    user = models.ForeignKey(User,blank=True,on_delete=models.CASCADE,null=True)
+    rooms = models.ForeignKey(rooms,blank=True,on_delete=models.CASCADE,null=True)
+    check_in = models.DateField(max_length=30)
+    check_out = models.DateField(max_length=30)
+    total_price =models.FloatField()
+    payement_status = models.BooleanField(default=False, null=True, blank=True)
+   
+    def __str__(self):
+        return "reservedDetails: " + str(self.id)
+
+
+class bookedDetails(models.Model):
+    user = models.ForeignKey(User,blank=True,on_delete=models.CASCADE,null=True)
+    rooms = models.ForeignKey(rooms,blank=True,on_delete=models.CASCADE,null=True)
+    booked = models.ForeignKey(reservedDetails,blank=True,on_delete=models.CASCADE,null=True)
+
+    def __str__(self):
+        return "bookedDetails: " + str(self.id)

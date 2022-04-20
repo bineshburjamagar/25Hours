@@ -3,6 +3,8 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
+/* 
+.inner-book2 {margin-right: 118px;} */
 
 .booking-section {padding-top: 114px;}
 
@@ -193,6 +195,10 @@ h5.card-title{
   form {
     width: 100%;
     padding-right: 15px;
-    padding-left: 15px; } }
+    padding-left: 15px; 
+  }
+}
+
+
 
     
