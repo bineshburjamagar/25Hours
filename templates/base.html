@@ -14,21 +14,28 @@
     <link rel="icon" href="{%static 'favicon/favicon.ico'%}" type="image/x-icon">
     <link rel="stylesheet" href="{%static 'css/addroom.css'%}">
     <link rel="stylesheet" href="{%static 'css/roomDetails.css'%}">
-    <link rel="stylesheet" href="{%static 'css/bookingDetails.css'%}">
+    <link rel="stylesheet" href="{%static 'css/profile.css'%}">
+    <link rel="stylesheet" href="{%static 'css/payment.css'%}">
+
+    <link rel="stylesheet" href="{%static 'css/footer.css'%}">
+
+  
 
     
 
-    <title>Document</title>
+    <title>25 Hours</title>
 </head>
 <body>
     {%include 'header.html'%}
+    
     {%block content%}
     {%endblock content%}
-{% comment %} {%include 'footer.html'%} {% endcomment %}
+    {%include 'footer.html'%}
 {%block script%}
 <script src="{% static 'js/script.js' %}">
     </script>
-{%endblock%}
+    {%endblock script%}
+
     
 </body>
 </html>

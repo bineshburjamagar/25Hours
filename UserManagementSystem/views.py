@@ -7,7 +7,8 @@ from tkinter import N
 from unicodedata import name
 from django.shortcuts import render, redirect
 
-from roomManagementSystem.models import rooms
+
+from roomManagementSystem.models import rooms, reservedDetails
 
 from django.http import JsonResponse
 
@@ -29,10 +30,10 @@ def signup(request):
             return redirect('home')
         else :
             if user.errors:
-                messages.success(request,'somthing is wronggg')
-                return redirect(request, "SignUp.html")
+                messages.error(request,'somthing is wronggg')
+                return render(request, "SignUp.html")
     else:
-        
+        messages.success(request,'account created')
         return render(request, 'SignUp.html')
        
 def ownerSignup(request):
@@ -72,12 +73,20 @@ def logoutuser(request):
     return render(request, 'Logout.html')
 
 def userprofile(request):
-    if request.user.is_authenticated:
         
         data= rooms.objects.filter(user = request.user)
-        context = {'data': data}
+        booked=reservedDetails.objects.filter(payement_status=True, user = request.user)
+        context = {'data': data, 'booked':booked}
+       
 
-        return render(request, 'profile.html', context)
-    else:
+        return render(request, ['profile.html'], context)
 
-        return redirect('Login.html')
+
+def bookingDetails(request):
+      data= rooms.objects.filter(user = request.user)
+      booked=reservedDetails.objects.filter(payement_status=True, user_id =request.user.id)
+      context = {'data': data, 'booked':booked}
+
+      return render(request, 'bookingProfile.html', context)
+
+   

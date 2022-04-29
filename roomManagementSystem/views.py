@@ -32,14 +32,14 @@ def addRoom(request):
         cover_image=request.FILES["cover_image"],
         room_desc=request.POST["room_desc"],
         user = request.user
-        
+
         )
-        
+
         # messages.success(request, 'Your account was created successfully' )
-       
+
         return redirect('home')
     else:
-        
+
         return render(request, "addRoom.html",context)
             # if room.errors:
             #     messages.success(request,'somthing is wronggg')
@@ -57,7 +57,7 @@ def multiple_upload(request):
         fm = ImageForm(request.POST,request.FILES)
         files = request.FILES.getlist('room_image')
         if fm.is_valid():
-     
+
             for f in files:
              gallary = PhotoGallary(room_image=f)
              gallary.save()
@@ -69,13 +69,13 @@ def multiple_upload(request):
     return render(request, 'addRoom.html',context)
 
 def room(request):
-    
+
     allRooms=rooms.objects.all()
     return render(request, 'rooms.html',{'rooms':allRooms})
 
 
 def searchbar(request):
-   
+
     query = request.GET['query']
     if query=='':
         return redirect('rm')
@@ -84,10 +84,10 @@ def searchbar(request):
         checkIn = rooms.objects.filter(start_date__icontains=query)
         checkOut = rooms.objects.filter(end_date__icontains=query)
         search=place.union(checkIn,checkOut)
-    
 
 
-        
+
+
     context = {'query':query, 'rooms':search}
     return render (request, 'searchbar.html',context)
 
@@ -100,7 +100,7 @@ def roomDetails(request,id):
 def reserved_details(request,id):
     data = reservedDetails.objects.filter(user_id = request.user.id)
     room =rooms.objects.filter(id=id)
-    context = {'data': data} 
+    context = {'data': data}
     if request.method == 'POST':
         roomId = request.POST["reserve-btn"]
         room = rooms.objects.get(id=roomId)
@@ -111,7 +111,7 @@ def reserved_details(request,id):
         user = request.user,
         rooms = room
          )
-         
+
         return redirect(reverse('payment')+ "?r_id="+ str(reserved.id))
 
 
@@ -124,7 +124,7 @@ def reserved_details(request,id):
 
 def payment(request):
     #  data = reservedDetails.objects.filter(user_id = request.user).last
-    #  context = {'data': data} 
+    #  context = {'data': data}
      r_id = request.GET.get("r_id")
      reserved = reservedDetails.objects.get(id=r_id)
      context={
@@ -138,7 +138,7 @@ def paymentVerify(request):
     r_id= request.GET.get("reserved_id")
     print(token,amount,r_id)
 
-   
+
     url = "https://khalti.com/api/v2/payment/verify/"
     payload = {
     "token": token,
@@ -147,7 +147,7 @@ def paymentVerify(request):
     headers = {
         "Authorization": "Key test_secret_key_69b9cb09e56d4c579e6f55d857329f3d"
     }
-    
+
     reserved_obj = reservedDetails.objects.get(id=r_id)
 
 
@@ -158,8 +158,9 @@ def paymentVerify(request):
     if resp_dict.get("idx"):
         success = True
         reserved_obj.payement_status = True
-        # bookedDetails.self_save()
+
         reserved_obj.save()
+        # bookedDetails.save()
     else:
         success = False
 
@@ -169,4 +170,3 @@ def paymentVerify(request):
     return JsonResponse(data)
 
 
-    

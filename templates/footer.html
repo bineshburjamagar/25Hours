@@ -1,7 +1,8 @@
-{%load static%}
+{% comment %} {%load static%}
 {%block css%}
 <link rel="stylesheet" href="{%static '/css/footer.css'%}"/>
 {%endblock%}
+{%block content%}
 <!--FOOTER SECTION -->
 
 <footer>
@@ -9,35 +10,44 @@
   <div class="footer-content">
 
       <!-- LEFT SIDE -->
-      <div class="footer-section about">
-          <h2>25 HOURS<br></h2>
-          <div class="content">
-           
-            <div class="social">
-              <!-- social media logos -->
-              <a href="#"><span class="fab fa-facebook-f"></span></a>
-              <a href="#"><span class="fab fa-instagram"></span></a>
-              
-            </div>
-          </div>
-      </div>
-
-      <!-- MIDDLE -->
       <div class="footer-section address">
-          <h2>ADDRESS</h2>
+        <h2>25 Hours</h2>
+        <br>
+        <div class="content">
+          <div class="place">
+            <span class="fas fa-map-marker-alt"></span>
+            <span class="text2">The major purpose of my project “25 Hours” is to make a hotel booking web application where there will be several hotel sites on a single site. Through this system, customer users can book hotels room of their choice from a single website with the hotels they prefer throughout Nepal as well as hotel owners can add their hotel rooms.</span>
+          </div>
+          <div class="phone">
+            <span class="fas fa-phone-alt"></span>
+            <span class="text2"></span>
+          </div>
+          <div class="email2">
+            <span class="fas fa-envelope"></span>
+            <span class="text2"></span>
+          </div>
+        </div>
+    </div>
+      <!-- MIDDLE -->
+     
+
+
+      <div class="footer-section address">
+          <h2> Support</h2>
           <br>
           <div class="content">
             <div class="place">
               <span class="fas fa-map-marker-alt"></span>
-              <span class="text2">Kathmandu, Nepal</span>
+              <span class="text2">
+                Help Center</span>
             </div>
             <div class="phone">
               <span class="fas fa-phone-alt"></span>
-              <span class="text2">0666666</span>
+              <span class="text2">Cancellation options</span>
             </div>
             <div class="email2">
               <span class="fas fa-envelope"></span>
-              <span class="text2">25Hours@gmail.com</span>
+              <span class="text2">2Safety information</span>
             </div>
           </div>
       </div>
@@ -57,10 +67,10 @@
               </div>
               <div class="msg">
                 <div class="text2">Message *</div>
-                    <textarea cols="10" rows="5" placeholder="Message here..." required></textarea>
+                    <input type="text" cols="10" rows="5" placeholder="Message here..." required></input>
                 </div>
           
-              <div class="btn">
+              <div class="f-btn">
                 <button type="submit">Send</button>
               </div>
             </form>
@@ -74,3 +84,4 @@
   </div>
 </div> 
 </footer>
+{%endblock%} {% endcomment %}

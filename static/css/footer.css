@@ -12,9 +12,9 @@
 
 
 .footer {
-    background: rgba(236, 233, 233, 0.919);
+    background: rgb(98 123 204 / 23%);
     color: rgb(0, 0, 0);
-    height: 400px;
+    height: 440px;
     position: relative;
   }
   
@@ -125,26 +125,22 @@
   .footer-section input {
     height: 35px;
   }
-  .btn{
-    display: inline-block;
-    margin-top: 1rem;
-    background: #6C63FF;
-    color:#fff;
-    padding:.8rem 3rem;
-    border:.2rem solid white;
-    cursor: pointer;
-    font-size: 0.7rem;
+ 
+  .f-btn{
     border-radius: 10px;
+    padding: 5px 8px;
+    background: #6c63ff;
+    height: 70px;width: 156px;
   }
   
-  .btn:hover{
+  .f-btn:hover{
     background:#2F2E41;
     color:#fff;
   }
-  .footer-section .btn {
+  .footer-section .f-btn {
     margin-top: 10px;
   }
-  .footer-section .btn button {
+  .footer-section .f-btn button {
     height: 40px;
     width: 100%;
     border: none;
@@ -155,6 +151,6 @@
     cursor: pointer;
     transition: 0.3s;
   }
-  .footer-section .btn button:hover {
+  .footer-section .f-btn button:hover {
     background: blue;
   }

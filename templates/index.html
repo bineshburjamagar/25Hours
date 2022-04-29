@@ -11,6 +11,7 @@
 
     
     <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <link rel="stylesheet" href="{%static 'css/footer.css'%}">
     <link rel="icon" href="{%static 'favicon/favicon.ico'%}" type="image/x-icon">
     
     <title>25 Hours</title>
@@ -105,8 +106,7 @@
           <img src="{%static 'img/kathmandu.jpg' %}" alt="">
           <div class="content">
               <h3> <i class="fas fa-map-marker-alt"></i> Kathmandu </h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-             
+            
               <a href="#" class="btn">Discover now</a>
           </div>
       </div>
@@ -115,8 +115,7 @@
           <img src="{%static 'img/kathmandu.jpg' %}" alt="">
           <div class="content">
               <h3> <i class="fas fa-map-marker-alt"></i> Bhaktapur </h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-              
+           
               <a href="#" class="btn">Discover now</a>
           </div>
       </div>
@@ -125,8 +124,7 @@
           <img src="{%static 'img/kathmandu.jpg' %}" alt="">
           <div class="content">
               <h3> <i class="fas fa-map-marker-alt"></i> Ilam </h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-             
+              
               <a href="#" class="btn">Discover now</a>
           </div>
       </div>
@@ -136,94 +134,111 @@
 
 <!-- packages section ends -->
 
-
-
-
-
-
-
-
-<section class="why">
-  <div class="det">
-  <h1> Why 25Hours</h1>
-  <P>
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-  </p>
+<hr>
+<div class="why-25hours">
+  <h2>Why 25hours</h2>
+  <div class="why-row">
+    <img class="img-easy" src="{%static 'img/easy-access.png' %}" alt="">
+    <h3>Esily Access</h3>
+    <p>This 25 Hours hotel booking management system will help in various ways for customers as well as hotel owners. Different hotel owners can register and log in to this website to add their available hotel rooms whereas customers as a user can sign up and log in to this site to view and book their desired rooms.</p>
   </div>
+  <div class="why-row">
+    <img class="img-time" src="{%static 'img/time-money.png' %}" alt="">
+    <h3>Saves Time</h3>
+    <p>Lorem ipsum dolor sit amet, mauris sed consectetuer. Etiam et eu, bibendum interdum, lacus quis mauris. Curabitur wisi, quisque vel eu, rutrum nam.</p>
+  </div>
+</div>
 
-</section>
+
+
+
 
 <!--FOOTER SECTION -->
+{%load static%}
+{%block css%}
+<link rel="stylesheet" href="{%static '/css/footer.css'%}"/>
+{%endblock%}
+<!--FOOTER SECTION -->
 
-          
+<footer>
 <div class="footer">
-    <div class="footer-content">
+  <div class="footer-content">
 
-        <!-- LEFT SIDE -->
-        <div class="footer-section about">
-            <h2>25 HOURS<br></h2>
-            <div class="content">
-             
-              <div class="social">
-                <!-- social media logos -->
-                <a href="#"><span class="fab fa-facebook-f"></span></a>
-                <a href="#"><span class="fab fa-instagram"></span></a>
-                
-              </div>
-            </div>
+      <!-- LEFT SIDE -->
+      <div class="footer-section address">
+        <h2>25 Hours</h2>
+        <br>
+        <div class="content">
+          <div class="place">
+            <span class="fas fa-map-marker-alt"></span>
+            <span class="text2">The major purpose of my project “25 Hours” is to make a hotel booking web application where there will be several hotel sites on a single site. Through this system, customer users can book hotels room of their choice from a single website with the hotels they prefer throughout Nepal as well as hotel owners can add their hotel rooms.</span>
+          </div>
+          <div class="phone">
+            <span class="fas fa-phone-alt"></span>
+            <span class="text2"></span>
+          </div>
+          <div class="email2">
+            <span class="fas fa-envelope"></span>
+            <span class="text2"></span>
+          </div>
         </div>
+    </div>
+      <!-- MIDDLE -->
+     
 
-        <!-- MIDDLE -->
-        <div class="footer-section address">
-            <h2>ADDRESS</h2>
-            <br>
-            <div class="content">
-              <div class="place">
-                <span class="fas fa-map-marker-alt"></span>
-                <span class="text2">Kathmandu, Nepal</span>
-              </div>
-              <div class="phone">
-                <span class="fas fa-phone-alt"></span>
-                <span class="text2">0666666</span>
-              </div>
+
+      <div class="footer-section address">
+          <h2> Support</h2>
+          <br>
+          <div class="content">
+            <div class="place">
+              <span class="fas fa-map-marker-alt"></span>
+              <span class="text2">
+                Help Center</span>
+            </div>
+            <div class="phone">
+              <span class="fas fa-phone-alt"></span>
+              <span class="text2">Cancellation options</span>
+            </div>
+            <div class="email2">
+              <span class="fas fa-envelope"></span>
+              <span class="text2">2Safety information</span>
+            </div>
+          </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+
+
+      <div class="footer-section contact">
+
+          <h2>FEEDBACKS</h2>
+          <br>
+          <div class="content">
+            <form action="#">
               <div class="email2">
-                <span class="fas fa-envelope"></span>
-                <span class="text2">25Hours@gmail.com</span>
+                <div class="text2">Email *</div>
+                <input type="email" required>
               </div>
-            </div>
-        </div>
-
-        <!-- RIGHT SIDE -->
-
-
-        <div class="footer-section contact">
-
-            <h2>FEEDBACKS</h2>
-            <br>
-            <div class="content">
-              <form action="#">
-                <div class="email2">
-                  <div class="text2">Email *</div>
-                  <input type="email" required>
+              <div class="msg">
+                <div class="text2">Message *</div>
+                    <input type="text" cols="10" rows="5" placeholder="Message here..." required></input>
                 </div>
-                <div class="msg">
-                  <div class="text2">Message *</div>
-                      <textarea cols="10" rows="5" placeholder="Message here..." required></textarea>
-                  </div>
-            
-                <div class="btn">
-                  <button type="submit">Send</button>
-                </div>
-              </form>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-         <span class="credit">Created By <a style="color:white"> |Binesh Burja Magar|</a> </span>
-        <span class="far fa-copyright"></span><span> 2022 All rights reserved.</span>
+          
+              <div class="f-btn">
+                <button type="submit">Send</button>
+              </div>
+            </form>
+          </div>
+      </div>
+  </div>
+  <div class="footer-bottom">
+       <span class="credit">Created By <a style="color:white"> |Binesh Burja Magar|</a> </span>
+      <span class="far fa-copyright"></span><span> 2022 All rights reserved.</span>
 
-    </div>
+  </div>
 </div> 
+</footer>
   
 <script src="{% static 'js/script.js' %}"></script> 
 </body>
